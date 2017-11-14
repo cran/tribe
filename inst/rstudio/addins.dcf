@@ -1,0 +1,4 @@
+Name: Insert %@>%
+Description: Inserts the pipe %@>%
+Binding: insertPipeWithAttributesPropagationAddin
+Interactive: false
