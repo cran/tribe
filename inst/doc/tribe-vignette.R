@@ -6,27 +6,27 @@ print.list <- function(x, ...) str(x)
 
 ## ------------------------------------------------------------------------
 df <- data.frame(x = 1:2, y = 2:3) %>%
-  define(example="yes", package="dplyr")
+  at_mutate(example="yes", package="dplyr")
 tribe(df)
 
 ## ------------------------------------------------------------------------
-take(df, names)
+at_slice(df, names)
 
 ## ------------------------------------------------------------------------
-take_(df, "class")
-take_(df, ~ package)
+at_slice_(df, "class")
+at_slice_(df, ~ package)
 
 ## ------------------------------------------------------------------------
 df <- df %>%
-  define_(package = ~ NULL, # deletes the attribute called 'package'
-          example = ~ "no")
+  at_mutate_(package = ~ NULL, # deletes the attribute called 'package'
+             example = ~ "no")
 tribe(df)
 
 ## ------------------------------------------------------------------------
 df <- data.frame(x = 1:2, y = 2:3) %>%
- define(example="yes",
-        package="tribe", 
-        class = c("my_tbl", "data.frame"))
+ at_mutate(example="yes",
+           package="tribe", 
+           class = c("my_tbl", "data.frame"))
 
 ## ------------------------------------------------------------------------
 tribe(df %>% mutate(z=3))

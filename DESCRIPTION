@@ -1,8 +1,8 @@
 Package: tribe
 Type: Package
 Title: Play with the Tribe of Attributes
-Version: 0.1.6
-Date: 2017-11-14
+Version: 0.1.7
+Date: 2018-08-02
 Authors@R: c(person("Paul", "Poncet", , "paulponcet@yahoo.fr", role = c("aut", "cre")), 
     person("Stefan Milton", "Bache", , "stefan@stefanbache.dk", role = "aut", 
            comment = "for functions copied or modified from the 'magrittr' package"), 
@@ -23,7 +23,7 @@ URL: https://github.com/paulponcet/tribe
 BugReports: https://github.com/paulponcet/tribe/issues
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-11-14 17:12:04 UTC; YL1101
+Packaged: 2018-08-02 10:17:59 UTC; YL1101
 Author: Paul Poncet [aut, cre],
   Stefan Milton Bache [aut] (for functions copied or modified from the
     'magrittr' package),
@@ -31,4 +31,4 @@ Author: Paul Poncet [aut, cre],
     'magrittr' package)
 Maintainer: Paul Poncet <paulponcet@yahoo.fr>
 Repository: CRAN
-Date/Publication: 2017-11-14 18:11:46 UTC
+Date/Publication: 2018-08-02 11:10:02 UTC
