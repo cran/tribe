@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2018-08-02" />
+<meta name="date" content="2019-11-23" />
 
 <title>Play with the tribe of attributes</title>
 
@@ -21,7 +21,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -34,13 +34,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -278,7 +276,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Play with the tribe of attributes</h1>
-<h4 class="date"><em>2018-08-02</em></h4>
+<h4 class="date"><em>2019-11-23</em></h4>
 
 
 
@@ -292,88 +290,88 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <li><code>at_slice</code> to extract attributes.</li>
 </ul>
 <p>The function <code>tribe</code> is a convenient synonym of <code>attributes</code>, with the slight difference that it always returns a named list.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="st">  </span><span class="kw">at_mutate</span>(<span class="dt">example=</span><span class="st">&quot;yes&quot;</span>, <span class="dt">package=</span><span class="st">&quot;dplyr&quot;</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">tribe</span>(df)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; List of 5</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt;  $ names    : chr [1:2] &quot;x&quot; &quot;y&quot;</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;  $ example  : chr &quot;yes&quot;</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;  $ package  : chr &quot;dplyr&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="st">  </span><span class="kw">at_mutate</span>(<span class="dt">example=</span><span class="st">&quot;yes&quot;</span>, <span class="dt">package=</span><span class="st">&quot;dplyr&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">tribe</span>(df)</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">#&gt; List of 5</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt;  $ names    : chr [1:2] &quot;x&quot; &quot;y&quot;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt;  $ example  : chr &quot;yes&quot;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt;  $ package  : chr &quot;dplyr&quot;</span></a></code></pre></div>
 <p>Use <code>at_slice</code> to extract attribute values:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">at_slice</span>(df, names)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; [1] &quot;x&quot; &quot;y&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">at_slice</span>(df, names)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">#&gt; [1] &quot;x&quot; &quot;y&quot;</span></a></code></pre></div>
 <p>Each verb has its standard evaluation version; for instance <code>at_slice_</code> is the standard evaluation version of <code>at_slice</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">at_slice_</span>(df, <span class="st">&quot;class&quot;</span>)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; [1] &quot;data.frame&quot;</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">at_slice_</span>(df, <span class="op">~</span><span class="st"> </span>package)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; [1] &quot;dplyr&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">at_slice_</span>(df, <span class="st">&quot;class&quot;</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">#&gt; [1] &quot;data.frame&quot;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">at_slice_</span>(df, <span class="op">~</span><span class="st"> </span>package)</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt; [1] &quot;dplyr&quot;</span></a></code></pre></div>
 <p>Similarly <code>at_mutate_</code> is the standard evaluation version of <code>at_mutate</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">at_mutate_</span>(<span class="dt">package =</span> <span class="op">~</span><span class="st"> </span><span class="ot">NULL</span>, <span class="co"># deletes the attribute called 'package'</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">             <span class="dt">example =</span> <span class="op">~</span><span class="st"> &quot;no&quot;</span>)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">tribe</span>(df)</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; List of 4</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  $ names    : chr [1:2] &quot;x&quot; &quot;y&quot;</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  $ example  : chr &quot;no&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="st">  </span><span class="kw">at_mutate_</span>(<span class="dt">package =</span> <span class="op">~</span><span class="st"> </span><span class="ot">NULL</span>, <span class="co"># deletes the attribute called &#39;package&#39;</span></a>
+<a class="sourceLine" id="cb4-3" title="3">             <span class="dt">example =</span> <span class="op">~</span><span class="st"> &quot;no&quot;</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="kw">tribe</span>(df)</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; List of 4</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt;  $ names    : chr [1:2] &quot;x&quot; &quot;y&quot;</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt;  $ example  : chr &quot;no&quot;</span></a></code></pre></div>
 </div>
 <div id="a-new-pipe-that-preserves-attributes" class="section level2">
 <h2>A new pipe that preserves attributes</h2>
 <p>The tribe package builds on the magrittr package and brings a new pipe <code>%@&gt;%</code> similar to the pipe <code>%&gt;%</code> that enables propagation of attributes.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st"> </span><span class="kw">at_mutate</span>(<span class="dt">example=</span><span class="st">&quot;yes&quot;</span>,</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">           <span class="dt">package=</span><span class="st">&quot;tribe&quot;</span>, </a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">           <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&quot;my_tbl&quot;</span>, <span class="st">&quot;data.frame&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="st"> </span><span class="kw">at_mutate</span>(<span class="dt">example=</span><span class="st">&quot;yes&quot;</span>,</a>
+<a class="sourceLine" id="cb5-3" title="3">           <span class="dt">package=</span><span class="st">&quot;tribe&quot;</span>, </a>
+<a class="sourceLine" id="cb5-4" title="4">           <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&quot;my_tbl&quot;</span>, <span class="st">&quot;data.frame&quot;</span>))</a></code></pre></div>
 <p>Attributes just created are often lost when the object passes through dplyr verbs, for instance:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">tribe</span>(df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">z=</span><span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; List of 3</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">tribe</span>(df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">z=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt; List of 3</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a></code></pre></div>
 <p>With the new pipe <code>%@&gt;%</code>, most attributes propagate:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">tribe</span>(df <span class="op">%@&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">z=</span><span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; List of 5</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;  $ class    : chr [1:2] &quot;my_tbl&quot; &quot;data.frame&quot;</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;  $ example  : chr &quot;yes&quot;</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;  $ package  : chr &quot;tribe&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">tribe</span>(df <span class="op">%@&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">z=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">#&gt; List of 5</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt;  $ class    : chr [1:2] &quot;my_tbl&quot; &quot;data.frame&quot;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt;  $ example  : chr &quot;yes&quot;</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt;  $ package  : chr &quot;tribe&quot;</span></a></code></pre></div>
 <p>Behind the scene, the <code>shield</code> function operates:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Attributes are lost when the object passes through dplyr verbs</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">df2 &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">z =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">tribe</span>(df2)</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; List of 3</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co"># Most attributes are kept</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">df3 &lt;-<span class="st"> </span><span class="kw">shield</span>(df2, <span class="kw">tribe</span>(df), <span class="dt">propagate =</span> <span class="st">&quot;most&quot;</span>)</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="kw">tribe</span>(df3)</a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt; List of 5</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">#&gt;  $ example  : chr &quot;yes&quot;</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">#&gt;  $ package  : chr &quot;tribe&quot;</span></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb8-19" data-line-number="19"><span class="co"># To keep the class, use 'keep_also'</span></a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">df4 &lt;-<span class="st"> </span><span class="kw">shield</span>(df2, <span class="kw">tribe</span>(df), <span class="dt">propagate =</span> <span class="st">&quot;most&quot;</span>, <span class="dt">keep_also =</span> <span class="st">&quot;class&quot;</span>)</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21"><span class="kw">tribe</span>(df4)</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22"><span class="co">#&gt; List of 5</span></a>
-<a class="sourceLine" id="cb8-23" data-line-number="23"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
-<a class="sourceLine" id="cb8-24" data-line-number="24"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
-<a class="sourceLine" id="cb8-25" data-line-number="25"><span class="co">#&gt;  $ class    : chr [1:2] &quot;my_tbl&quot; &quot;data.frame&quot;</span></a>
-<a class="sourceLine" id="cb8-26" data-line-number="26"><span class="co">#&gt;  $ example  : chr &quot;yes&quot;</span></a>
-<a class="sourceLine" id="cb8-27" data-line-number="27"><span class="co">#&gt;  $ package  : chr &quot;tribe&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># Attributes are lost when the object passes through dplyr verbs</span></a>
+<a class="sourceLine" id="cb8-2" title="2">df2 &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">z =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw">tribe</span>(df2)</a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">#&gt; List of 3</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
+<a class="sourceLine" id="cb8-8" title="8"></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="co"># Most attributes are kept</span></a>
+<a class="sourceLine" id="cb8-10" title="10">df3 &lt;-<span class="st"> </span><span class="kw">shield</span>(df2, <span class="kw">tribe</span>(df), <span class="dt">propagate =</span> <span class="st">&quot;most&quot;</span>)</a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="kw">tribe</span>(df3)</a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="co">#&gt; List of 5</span></a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="co">#&gt;  $ class    : chr &quot;data.frame&quot;</span></a>
+<a class="sourceLine" id="cb8-16" title="16"><span class="co">#&gt;  $ example  : chr &quot;yes&quot;</span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="co">#&gt;  $ package  : chr &quot;tribe&quot;</span></a>
+<a class="sourceLine" id="cb8-18" title="18"></a>
+<a class="sourceLine" id="cb8-19" title="19"><span class="co"># To keep the class, use &#39;keep_also&#39;</span></a>
+<a class="sourceLine" id="cb8-20" title="20">df4 &lt;-<span class="st"> </span><span class="kw">shield</span>(df2, <span class="kw">tribe</span>(df), <span class="dt">propagate =</span> <span class="st">&quot;most&quot;</span>, <span class="dt">keep_also =</span> <span class="st">&quot;class&quot;</span>)</a>
+<a class="sourceLine" id="cb8-21" title="21"><span class="kw">tribe</span>(df4)</a>
+<a class="sourceLine" id="cb8-22" title="22"><span class="co">#&gt; List of 5</span></a>
+<a class="sourceLine" id="cb8-23" title="23"><span class="co">#&gt;  $ names    : chr [1:3] &quot;x&quot; &quot;y&quot; &quot;z&quot;</span></a>
+<a class="sourceLine" id="cb8-24" title="24"><span class="co">#&gt;  $ row.names: int [1:2] 1 2</span></a>
+<a class="sourceLine" id="cb8-25" title="25"><span class="co">#&gt;  $ class    : chr [1:2] &quot;my_tbl&quot; &quot;data.frame&quot;</span></a>
+<a class="sourceLine" id="cb8-26" title="26"><span class="co">#&gt;  $ example  : chr &quot;yes&quot;</span></a>
+<a class="sourceLine" id="cb8-27" title="27"><span class="co">#&gt;  $ package  : chr &quot;tribe&quot;</span></a></code></pre></div>
 <p>One can create a new pipe to adjust attributes propagation settings:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="st">&quot;%newpipe&gt;%&quot;</span> &lt;-<span class="st"> </span><span class="kw">make_pipe</span>(<span class="dt">propagate=</span><span class="st">&quot;none&quot;</span>, <span class="dt">keep_also =</span> <span class="st">&quot;example&quot;</span>)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">tribe</span>(df <span class="op">%newpipe&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">z=</span><span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt; List of 1</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt;  $ example: chr &quot;yes&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="st">&quot;%newpipe&gt;%&quot;</span> &lt;-<span class="st"> </span><span class="kw">make_pipe</span>(<span class="dt">propagate=</span><span class="st">&quot;none&quot;</span>, <span class="dt">keep_also =</span> <span class="st">&quot;example&quot;</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">tribe</span>(df <span class="op">%newpipe&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">z=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="co">#&gt; List of 1</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="co">#&gt;  $ example: chr &quot;yes&quot;</span></a></code></pre></div>
 </div>
 
 
